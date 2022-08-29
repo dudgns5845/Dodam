@@ -39,7 +39,9 @@ https://www.jondjones.com/frontend/react/react-tutorials/react-coding-standards-
 - ex) Docs: #6 Docs 수정
 - 혹은 Issue 관계가 없을 경우 그냥
 - Docs: Docs 수정
-*****
+*****ㄴㄷ
 
-
-
+## My service
+- 저희 웹사이트는 취약계층 세대의 아동들에게 후원할 기회를 제공해주는 사이트입니다. 
+- 사이트를 통해 물품, 재능기부 등을 등록하고 아이들에게 후원을 할 수 있습니다.
+- 또한 결식아동에게 음식을 후원할 가게를 자원받아 선한 의도로 아이들이 부담없이 가게를 찾아갈 수 있게 가게 정보를 제공해줍니다.  
