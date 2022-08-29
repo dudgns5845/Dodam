@@ -1,5 +1,5 @@
 ## Library that we used
-- yarn add react-bootstrap bootstrap
+- yarn add @material-ui/core
 - yarn add react-router-dom
 - yarn add axios
 - yarn add react-redux @reduxjs/toolkit
