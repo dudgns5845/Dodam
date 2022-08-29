@@ -15,6 +15,9 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import { Button } from "@mui/material";
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -64,6 +67,13 @@ export default function Header() {
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+
+    const [value, setValue] = React.useState('one');
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
+    };
+
     const handleProfileMenuOpen = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -98,8 +108,8 @@ export default function Header() {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-            <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+            <MenuItem onClick={handleMenuClose}>마이페이지</MenuItem>
+            <MenuItem onClick={handleMenuClose}>로그아웃</MenuItem>
         </Menu>
     );
 
@@ -159,15 +169,6 @@ export default function Header() {
         <Box sx={{ flexGrow: 1 }}>
             <AppBar position="static">
                 <Toolbar>
-                    <IconButton
-                        size="large"
-                        edge="start"
-                        color="inherit"
-                        aria-label="open drawer"
-                        sx={{ mr: 2 }}
-                    >
-                        <MenuIcon />
-                    </IconButton>
                     <Typography
                         variant="h6"
                         noWrap
@@ -176,6 +177,21 @@ export default function Header() {
                     >
                         도담도담
                     </Typography>
+
+
+                    <Tabs
+                        value={value}
+                        onChange={handleChange}
+                        textColor="secondary"
+                        indicatorColor="secondary"
+                        aria-label="secondary tabs example"
+                    >
+                        <Tab value="one" label="전체" />
+                        <Tab value="two" label="재능 기부" />
+                        <Tab value="three" label="나눔" />
+                        <Tab value="four" label="선한 영향력" />
+                        <Tab value="five" label="요청해요" />
+                    </Tabs>
                     <Search>
                         <SearchIconWrapper>
                             <SearchIcon />
@@ -225,6 +241,8 @@ export default function Header() {
                             <MoreIcon />
                         </IconButton>
                     </Box>
+                    <Button sx={{ color: 'white' }}>로그인/회원가입</Button>
+
                 </Toolbar>
             </AppBar>
             {renderMobileMenu}
