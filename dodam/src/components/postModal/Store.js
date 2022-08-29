@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import { Modal } from "@mui/material";
 
 export default function Store({ closeModal }) {
   const [title, setTitle] = useState("");
@@ -8,13 +7,15 @@ export default function Store({ closeModal }) {
   const [imgState, setImageState] = useState("/logo512.png");
   const [tagList, setTagList] = useState([]);
   const [phone, setPhone] = useState();
-  const [time, setTime] = useState();
+  const [open, setOpen] = useState(0);
+  const [close, setClose] = useState(0);
+  const [address, setAddress] = useState();
   const CloseHandler = () => {
     closeModal();
   };
   const ClickHandler = () => {
     const tag = tagList;
-    console.log(title, tag, contents, imgState, phone, time);
+    console.log(title, tag, contents, imgState, phone, open, close, address);
   };
   const TitleChangeHandler = (e) => {
     const title = e.currentTarget.value;
@@ -45,15 +46,20 @@ export default function Store({ closeModal }) {
       setPhone(e.target.value);
     }
   };
-  const TimeChangeHandler = (e) => {
-    const time = e.target.value;
-    setTime(time);
+  const CloseTimeChangeHandler = (e) => {
+    const close = e.target.value;
+    setClose(close);
+  };
+  const OpenTimeChangeHandler = (e) => {
+    const open = e.target.value;
+    setOpen(open);
+  };
+  const AddressChangeHandler = (e) => {
+    const address = e.target.value;
+    setAddress(address);
   };
   return (
     <>
-      <Modal>
-        <div></div>
-      </Modal>
       <div>
         <h1>음식점을 등록 해 주세요.</h1>
         <input
@@ -68,7 +74,8 @@ export default function Store({ closeModal }) {
           onKeyUp={TagInput}
           placeholder="태그를 입력해주세요"
         />
-        <input type="time" />
+        <input type="time" value={open} onChange={OpenTimeChangeHandler} />
+        <input type="time" value={close} onChange={CloseTimeChangeHandler} />
         {tagList.map((tag, idx) => (
           <div
             key={idx}
@@ -90,6 +97,12 @@ export default function Store({ closeModal }) {
           value={phone}
           onChange={PhoneChangeHandler}
           placeholder="전화번호를 입력해주세요"
+        />
+        <input
+          type="text"
+          onChange={AddressChangeHandler}
+          value={address}
+          placeholder="가게 주소를 입력해주세요."
         />
 
         <input
