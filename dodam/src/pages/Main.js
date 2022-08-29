@@ -70,7 +70,7 @@ text-shadow : 3px 3px 6px gray;
 `;
 
 const SubTitle = styled.div`
-font-size: 3em;
+font-size: 2.5em;
 min-width: 55vw;
 height: 100vh;
 /* background-color: orange; */
