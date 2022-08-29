@@ -8,6 +8,10 @@ import ShareIcon from "@mui/icons-material/Share";
 import { useState } from "react";
 import PostingModal from "../components/postModal/PostingModal";
 
+
+import TagTable from "../components/TagTable";
+import PostTable from "../components/PostTable";
+
 export default function PostPage() {
   const [open, setOpen] = useState(false);
   const write = () => {
@@ -25,7 +29,7 @@ export default function PostPage() {
       <PostingModal open={open} setOpen={setOpen} />
       <SpeedDial
         ariaLabel="SpeedDial basic example"
-        sx={{ position: "absolute", bottom: 16, right: 16 }}
+        sx={{ position: "fixed", bottom: 16, right: 16 }}
         icon={<SpeedDialIcon />}
       >
         {actions.map((action) => (
@@ -37,6 +41,11 @@ export default function PostPage() {
           />
         ))}
       </SpeedDial>
+      <div style={{ display: 'flex' }}>
+        <TagTable />
+        <PostTable />
+      </div>
+
     </>
   );
 }
