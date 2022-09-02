@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-
+import Input from "@mui/material/Input";
 export default function Item({ closeModal }) {
   const [title, setTitle] = useState("");
   const tagRef = useRef();
@@ -38,19 +38,20 @@ export default function Item({ closeModal }) {
     setImageState(URL.createObjectURL(e.target.files[0]));
   };
   return (
-    <div>
+    <div style={{ margin: "auto" }}>
       <h1>물품 기증</h1>
-      <input
+      <Input
         type="text"
         onChange={TitleChangeHandler}
         value={title}
-        placeholder="가게 제목을 입력해주세요"
+        placeholder="제목"
       />
-      <input
+      <Input
+        fullWidth
         type="text"
         ref={tagRef}
         onKeyUp={TagInput}
-        placeholder="태그를 입력해주세요"
+        placeholder="물품에 어울리는 태그를 작성해 주세요."
       />
       {tagList.map((tag, idx) => (
         <div
@@ -67,7 +68,8 @@ export default function Item({ closeModal }) {
           {tag}
         </div>
       ))}
-      <input
+      <Input
+        fullWidth
         style={{ width: "400px", height: "400px" }}
         type="text"
         onChange={ContentsChangeHandler}
@@ -78,11 +80,12 @@ export default function Item({ closeModal }) {
         alt="sample"
         src={imgState}
         style={{
-          width: "200px",
-          height: "200px",
+          width: "100px",
+          height: "100px",
         }}
       />
-      <input
+      <Input
+        fullWidth
         type="file"
         accept="image/*"
         encType="multipart/form-data"

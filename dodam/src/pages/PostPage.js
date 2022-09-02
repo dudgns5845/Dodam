@@ -1,7 +1,7 @@
 import SpeedDial from "@mui/material/SpeedDial";
 import SpeedDialIcon from "@mui/material/SpeedDialIcon";
 import SpeedDialAction from "@mui/material/SpeedDialAction";
-import FileCopyIcon from "@mui/icons-material/FileCopyOutlined";
+import EditIcon from "@mui/icons-material/Edit";
 import SaveIcon from "@mui/icons-material/Save";
 import PrintIcon from "@mui/icons-material/Print";
 import ShareIcon from "@mui/icons-material/Share";
@@ -14,7 +14,7 @@ export default function PostPage() {
     setOpen(true);
   };
   const actions = [
-    { icon: <FileCopyIcon />, name: "Posting", action: write },
+    { icon: <EditIcon />, name: "작성하기", action: write },
     { icon: <SaveIcon />, name: "Save", action: null },
     { icon: <PrintIcon />, name: "Print", action: null },
     { icon: <ShareIcon />, name: "Share", action: null },
