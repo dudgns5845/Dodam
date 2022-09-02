@@ -41,10 +41,11 @@ export default function PostPage() {
           />
         ))}
       </SpeedDial>
-      <div style={{ display: 'flex' }}>
+      <PostTable />
+      {/* <div style={{ display: 'flex' }}>
         <TagTable />
-        <PostTable />
-      </div>
+       
+      </div> */}
 
     </>
   );
